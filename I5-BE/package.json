@@ -1,0 +1,25 @@
+{
+  "name": "i5-be",
+  "version": "1.0.0",
+  "description": "<h1 align=\"center\">\r <br>\r I5\r </h1>",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/c-Bruno/I5-BE.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/c-Bruno/I5-BE/issues"
+  },
+  "homepage": "https://github.com/c-Bruno/I5-BE#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.13",
+    "nodemon": "^2.0.6"
+  }
+}

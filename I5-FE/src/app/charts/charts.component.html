@@ -1,0 +1,102 @@
+<div class="d-flex background">
+    <div class="center-chart">
+        <div class="row">
+            <div class="filters col-md-3">
+                <form [formGroup]="itemForm">
+                    <div class="">
+                        <h4>Personalize sua busca:</h4>
+                        
+                        <div class="form-group col-md-10">
+                            <ng-select formControlName="ano" name="ano" placeholder="Ano emição BO">
+                                <ng-option *ngFor="let ano of anos" [value]="ano.ano">{{ ano.ano }}</ng-option>
+                            </ng-select>
+                        </div>
+
+                        <div class="form-group col-md-10">
+                            <ng-select formControlName="mes" name="mes" placeholder="Mês emição BO">
+                                <ng-option *ngFor="let mes of meses" [value]="mes.mes">{{ mes.mes }}</ng-option>
+                                </ng-select>
+                        </div>
+
+                        <div class="form-group col-md-10">
+                            <input class="form-control" type="date" maxlength="100" formControlName="dataOcorrido" placeholder="Data do ocorrido">
+                        </div>
+
+                        <div class="form-group col-md-10">
+                            <input class="form-control" type="text" maxlength="100" formControlName="periodo" placeholder="Periodo">
+                        </div>
+
+                        <div class="form-group col-md-10">
+                            <input class="form-control" type="text" maxlength="100" formControlName="cidade" placeholder="Cidade">
+                        </div>
+
+                        <div class="form-group col-md-10">
+                            <ng-select formControlName="estado" name="estado" placeholder="Estado">
+                                <ng-option *ngFor="let estado of estados" [value]="estado.state">{{ estado.state }}</ng-option>
+                             </ng-select>
+                        </div>
+
+                        <div class="form-group col-md-10">
+                            <ng-select formControlName="sexo" name="sexo" placeholder="Sexo">
+                                <ng-option *ngFor="let sexo of sexos" [value]="sexo.sexo">{{ sexo.sexo }}</ng-option>
+                             </ng-select>
+                        </div>
+
+                        <div class="form-group col-md-10">
+                            <input class="form-control" type="text" maxlength="100" formControlName="flagrante" placeholder="Flagrante">
+                        </div>
+
+                        <div class="form-group col-md-10">
+                            <input class="form-control" type="text" maxlength="100" formControlName="delegacia" placeholder="Delegacia">                           
+                        </div>
+
+
+                        <button class="btn btn-dark ml-3 mt-3 pull-right" (click)="createChart()">Filtrar</button>
+                        <button class="btn btn-dark ml-3 mt-3 pull-right" (click)="resetFilters()">Limpar</button>
+                    </div>
+                </form>
+            </div>
+            <div class="chart col">
+                <div class="back-chart" style="display: block;">
+                    <h2>Número de homicídio por gênero</h2>
+                    <canvas baseChart
+                       [datasets]="barChartData"
+                        [labels]="barChartLabels"
+                        [options]="barChartOptions"
+                        [plugins]="barChartPlugins"
+                        [legend]="barChartLegend"
+                        [chartType]="barChartType">
+                    </canvas>
+                </div>
+                    <br>
+                    <br>
+                <div class="back-chart" style="display: block;">
+                    <h2>Homicídio por mês do ano de 2019</h2>
+                    <canvas baseChart width="400" height="200"
+                        [datasets]="lineChartData"
+                        [labels]="lineChartLabels"
+                        [options]="lineChartOptions"
+                        [colors]="lineChartColors"
+                        [legend]="lineChartLegend"
+                        [chartType]="lineChartType"
+                        [plugins]="lineChartPlugins">
+                    </canvas>
+                </div>
+                    <br>
+                    <br>
+                <div class="back-chart" style="display: block;">
+                    <h2>Número de homicídio por cor no ano de 2019</h2>
+                    <canvas baseChart 
+                        [data]="pieChartData" 
+                        [labels]="pieChartLabels" 
+                        [chartType]="pieChartType"
+                        [options]="pieChartOptions"
+                        [plugins]="pieChartPlugins"
+                        [legend]="pieChartLegend">
+                    </canvas>
+                </div>
+                  
+            </div>
+        </div>
+    </div>
+</div>
